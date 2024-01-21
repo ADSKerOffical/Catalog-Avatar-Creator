@@ -159,16 +159,63 @@ end
 Tab:AddButton({
  Name = "Hacked pseudonym",
  Callback = function()
-        while game:GetService("RunService").RenderStepped:wait() do
-a = math.random(10000,99999)
+
+while game:GetService("RunService").RenderStepped:wait() do
+a = math.random(1,5)
+if a == 1 then
 local args = {
     [1] = {
         ["Action"] = "SetDisplayName",
-        ["DisplayName"] = a
+        ["DisplayName"] = "Hack the script is very good"
     }
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("SettingsRemoteFunction"):InvokeServer(unpack(args))
+end
+
+if a == 2 then
+local args = {
+    [1] = {
+        ["Action"] = "SetDisplayName",
+        ["DisplayName"] = "Is it really that good?"
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("SettingsRemoteFunction"):InvokeServer(unpack(args))
+end
+
+if a == 3 then
+local args = {
+    [1] = {
+        ["Action"] = "SetDisplayName",
+        ["DisplayName"] = "This the text was hacked by me"
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("SettingsRemoteFunction"):InvokeServer(unpack(args))
+end
+
+if a == 4 then
+local args = {
+    [1] = {
+        ["Action"] = "SetDisplayName",
+        ["DisplayName"] = "Then the colors will change"
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("SettingsRemoteFunction"):InvokeServer(unpack(args))
+end
+
+if a == 5 then
+local args = {
+    [1] = {
+        ["Action"] = "SetDisplayName",
+        ["DisplayName"] = "Nice script isn't it?"
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("SettingsRemoteFunction"):InvokeServer(unpack(args))
+end
 end
 
 wait()
