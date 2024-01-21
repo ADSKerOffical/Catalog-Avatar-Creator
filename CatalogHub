@@ -1,0 +1,172 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "CatalogHub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "Catalog avatar",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddTextbox({
+	Name = "Morph in player",
+	Default = "id",
+	TextDisappear = true,
+	Callback = function(Value)
+		local args = {
+    [1] = {
+        ["RigType"] = Enum.HumanoidRigType.R6,
+        ["Action"] = "MorphIntoPlayer",
+        ["UserId"] = Value
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("CatalogGuiRemote"):InvokeServer(unpack(args))
+	end	
+})
+
+Tab:AddButton({
+	Name = "Glitch head",
+	Callback = function()
+	while wait() do
+      		a = math.random(0,1)
+              b = math.random(0,1)
+              c = math.random(0,1)
+
+local args = {
+    [1] = {
+        ["Action"] = "UpdateHumanDescProperties",
+        ["Properties"] = {
+            ["HeadColor"] = Color3.new(a, b ,c),
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("CatalogGuiRemote"):InvokeServer(unpack(args))
+end
+  	end    
+})
+
+Tab:AddButton({
+ Name = "Lag server",
+ Callback = function()
+        while wait() do
+local args = {
+    [1] = {
+        ["Id"] = 63690008,
+        ["Action"] = "TryItem",
+        ["PropertyName"] = "HairAccessory"
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("CatalogGuiRemote"):InvokeServer(unpack(args))
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Weird walk",
+ Callback = function()
+        while game:GetService("RunService").RenderStepped:wait() do
+a = math.random(-4,4)
+b = math.random(-4,4)
+c = math.random(-4,4)
+
+local args = {
+    [1] = {
+        ["Left Hip"] = {
+            ["C1"] = CFrame.new(a, b, c, a, b, c, a, b, c, a, b, c),
+            ["C0"] = CFrame.new(a, b, c, a, b, c, a, b, c, a, b, c)
+        },
+        ["Right Hip"] = {
+            ["C1"] = CFrame.new(a, b, c, a, b, c, a, b, c, a, b, c),
+            ["C0"] = CFrame.new(a, b, c, a, b, c, a, b, c, a, b, c)
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ApplyPose"):FireServer(unpack(args))
+
+local args = {
+    [1] = {
+        ["Left Shoulder"] = {
+            ["C1"] = CFrame.new(a, b, c, a, b, c, a, b, c, a, b, c),
+            ["C0"] = CFrame.new(a, b, c, a, b, c, a, b, c, a, b, c)
+        },
+        ["Right Shoulder"] = {
+            ["C1"] = CFrame.new(a, b, c, a, b, c, a, b, c, a, b, c),
+            ["C0"] = CFrame.new(a, b, c, a, b, c, a, b, c, a, b, c)
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ApplyPose"):FireServer(unpack(args))
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Weird idk",
+ Callback = function()
+        while wait() do
+a = math.random(-2,2)
+b = math.random(-2,2)
+c = math.random(-2,2)
+
+local args = {
+    [1] = {
+        ["RootJoint"] = {
+            ["C1"] = CFrame.new(a, b, c, a, a, a, b, c, a, b, c, a),
+            ["C0"] = CFrame.new(a, b, c, a, b, c, a, b, c, a, b, c)
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ApplyPose"):FireServer(unpack(args))
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Pulsating accessory",
+ Callback = function()
+        while game:GetService("RunService").RenderStepped:wait() do
+a = math.random(1,10)
+local args = {
+    [1] = {
+        ["Scale"] = a,
+        ["Accessory"] = game:GetService("Players").LocalPlayer.Character.CampHat,
+        ["Action"] = "UpdateScale"
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("AccessoryEffectsRemoteEvent"):FireServer(unpack(args))
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Hacked pseudonym",
+ Callback = function()
+        while game:GetService("RunService").RenderStepped:wait() do
+a = math.random(10000,99999)
+local args = {
+    [1] = {
+        ["Action"] = "SetDisplayName",
+        ["DisplayName"] = a
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("SettingsRemoteFunction"):InvokeServer(unpack(args))
+end
+
+wait()
+
+OrionLib:MakeNotification({
+	Name = "CatalogHub",
+	Content = "Other players see this",
+	Image = "rbxassetid://4483345998",
+	Time = 7
+})
+   end    
+})
