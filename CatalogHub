@@ -130,6 +130,17 @@ end
 Tab:AddButton({
  Name = "Pulsating accessory",
  Callback = function()
+
+local args = {
+    [1] = {
+        ["Id"] = 10193380914,
+        ["Action"] = "TryItem",
+        ["PropertyName"] = "HatAccessory"
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("CatalogGuiRemote"):InvokeServer(unpack(args))
+
         while game:GetService("RunService").RenderStepped:wait() do
 a = math.random(1,10)
 local args = {
